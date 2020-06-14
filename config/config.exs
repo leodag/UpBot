@@ -1,9 +1,9 @@
-use Mix.Config
+import Config
 
 config :up_bot, UpBot.Repo,
   database: "up_bot_repo",
-  username: "user",
-  password: "pass",
+  username: "postgres",
+  password: "postgres",
   hostname: "localhost"
 
 config :up_bot,

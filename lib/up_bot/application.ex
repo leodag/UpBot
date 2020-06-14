@@ -6,7 +6,9 @@ defmodule UpBot.Application do
   def start(_type, _args) do
     children = [
       {UpBot.Scheduler, [name: UpBot.Scheduler]},
-      {UpBot, [name: UpBot]},
+      UpBot.ReferenceTracker,
+      {UpBot.Repo, []},
+      {UpBot.Bot, [name: UpBot.Bot]}
     ]
 
     opts = [strategy: :one_for_all, name: UpBot.Supervisor]

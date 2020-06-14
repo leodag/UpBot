@@ -25,6 +25,9 @@ defmodule UpBot.MixProject do
       {:nadia, "~> 0.6.0"},
       {:quantum, "~> 2.3"},
       {:timex, "~> 3.0"},
+      {:ecto_sql, "~> 3.0"},
+      {:postgrex, ">= 0.0.0"},
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
     ]
   end
 end
