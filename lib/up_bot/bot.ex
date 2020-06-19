@@ -53,7 +53,7 @@ defmodule UpBot.Bot do
           id = update.message.chat.id
           [command | arguments] = String.split(update.message.text, ~r|[ \t\n]+|, parts: 2)
           command = Regex.run(~r|^/[A-Za-z0-9_]*[^@ ]?|, command)
-          arguments = arguments |> Enum.at(1, "") |> String.trim()
+          arguments = arguments |> Enum.at(0, "") |> String.trim()
 
           case hd(command) do
             "/setup" ->
