@@ -19,7 +19,10 @@ defmodule UpBot.Bot do
       UpBot.schedule_up(id, message, cron)
     end
 
-    {:ok, []}
+    me = Nadia.get_me()
+
+    send(self(), {:update, 0})
+    {:ok, %{me: me}}
   end
 
   def handle_info({:update, id}, state) do
