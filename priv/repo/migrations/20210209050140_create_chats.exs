@@ -8,5 +8,6 @@ defmodule UpBot.Repo.Migrations.CreateChats do
 
       timestamps()
     end
+
   end
 end

@@ -52,6 +52,7 @@ defmodule UpBot do
     UpBot.ReferenceTracker.delete(id)
   end
 
+  @spec change_message(integer, String.t()) :: :ok
   def change_message(id, message) do
     {:ok, chat} =
       Repo.get!(Chat, id)
@@ -60,8 +61,10 @@ defmodule UpBot do
 
     unschedule_up(chat.id)
     schedule_up(chat.id, chat.message, chat.schedule)
+    :ok
   end
 
+  @spec change_schedule(integer, CronExpression.t()) :: :ok
   def change_schedule(id, schedule) do
     {:ok, chat} =
       Repo.get!(Chat, id)
@@ -70,5 +73,6 @@ defmodule UpBot do
 
     unschedule_up(chat.id)
     schedule_up(chat.id, chat.message, chat.schedule)
+    :ok
   end
 end
